@@ -1,6 +1,13 @@
 # Winker
 
 Winker is a gem written to support the wink api and any other associated platforms.
+Currently I only have a wink spotter and ge link light bulbs. If you have other devices that you would like included in the project then there are several options
+
+  1. Fork the project and add your own code.
+  2. Ship me your device so i can test with it, then I can ship it back.
+  3. Donate a device to me for all my hard work so I can make use of it and test whenever there are api updates.
+  
+Personally I like option 3 but anything works. Contact me through github to discuss details.
 
 ## Installation
 
@@ -158,6 +165,12 @@ Each device has it's own associated type. To make things easier when devices are
     #method_missing is also included to retrieve some attributes
     name
     order    
+
+#Future plans
+
+1. I need to add more functionality that the api provides as well as more helper methods for devices that I don't have and can't test.
+2. I'm getting an Amazon Echo in April that I plan on integrating as a separate gem.
+3. I've already started on winker-rails gem that currently works with light bulbs on off and brightness. I'll release it soon and continue to add functionality.
 
 
 ## Contributing
