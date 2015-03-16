@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["kmahan@kmahan.com"]
   spec.summary       = %q{Winker is a gem written to support the wink api and any other associated platforms.}
   spec.description   = %q{Winker is a gem written to support the wink api and any other associated platforms.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/KellyMahan/winker"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
