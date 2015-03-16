@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Winker::VERSION
   spec.authors       = ["Kelly Mahan"]
   spec.email         = ["kmahan@kmahan.com"]
-  spec.summary       = %q{TODO: Winker is a gem written to support the wink api and any other associated platforms.}
-  spec.description   = %q{TODO: Winker is a gem written to support the wink api and any other associated platforms.}
+  spec.summary       = %q{Winker is a gem written to support the wink api and any other associated platforms.}
+  spec.description   = %q{Winker is a gem written to support the wink api and any other associated platforms.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
