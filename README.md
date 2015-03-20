@@ -36,6 +36,7 @@ Or install it yourself as:
       wink.username = "email@domain.com"
       wink.password = "**********"
       wink.endpoint = "https://winkapi.quirky.com"
+      wink.wait_for_updates = true #this is the default setting is optional
     end
 
     #retrieve the access_token and refresh_token
@@ -54,11 +55,24 @@ Or install it yourself as:
 #Device Methods/Attributes
 Some status methods are blocking in the sense that if a status change is sent, such as powering the device on or off, the next time you call powered? it will refresh every 2 seconds until last updated at time is greater than when the status change was called. If 20 seconds pass before an update then the it throws and error that it hasn't received an update. During my testing an update normally took about 4 seconds. But at times would take much longer.
 
+To temporarily disable or enable blocking use the Winker.wait_for_update block method
+
 examples
 
     devices = Winker.devices #returns an array of device objects
     devices[1].type
     => "light_bulb"
+    
+    Winker.wait_for_update(false) do
+      devices[1].off
+    end
+    devices[1].powered? #it takes time for update to reach bulb and signal completion
+    => true
+    Winker.wait_for_update(true) do
+      devices[1].off
+    end
+    devices[1].powered? #blocks until status updated_at is greater than the time we called the off method
+    => false
     
 Each device has it's own associated type. To make things easier when devices are loaded methods are included to help interact with the device so update(options) doesn't have to be called for every interaction.
 
