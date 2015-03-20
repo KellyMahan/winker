@@ -23,18 +23,20 @@ module Winker
       end
   
       def wait_for_update(boolean_proc, options = {}, &block)
-        options = {
-          timeout: WAIT_BLOCK_TIMEOUT
-        }.merge(options)
-        start = Time.now
-        until (success = boolean_proc.call) || Time.now > start+options[:timeout]
-          result = yield
-          sleep WAIT_BLOCK_SLEEP
-        end
-        if success
-          return result
-        else
-          raise "Device #{self.type} #{self.name} not updated."
+        if Winker.wait_for_updates
+          options = {
+            timeout: WAIT_BLOCK_TIMEOUT
+          }.merge(options)
+          start = Time.now
+          until (success = boolean_proc.call) || Time.now > start+options[:timeout]
+            result = yield
+            sleep WAIT_BLOCK_SLEEP
+          end
+          if success
+            return result
+          else
+            raise "Device #{self.type} #{self.name} not updated and timed out after #{options[:timeout]}."
+          end
         end
       end
     end

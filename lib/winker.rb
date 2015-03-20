@@ -36,12 +36,25 @@ module Winker
   end
   
   module Configuration
-    attr_accessor :client_id, :client_secret, :access_token, :refresh_token, :username, :password, :endpoint, :server_time_dif
+    attr_accessor :client_id, :client_secret, :access_token, :refresh_token, :username, :password, :endpoint, :server_time_dif, :wait_for_updates
 
     def configure
+      self.wait_for_updates = true
       yield self
     end
   end
+
+  def self.wait_for_update(should_i_wait = true)
+    _default_setting = self.wait_for_updates
+    self.wait_for_updates = should_i_wait
+    begin
+      yield
+    rescue Exception => e
+      self.wait_for_updates = _default_setting
+      raise e
+    end
+  end
+
 
   extend Parser
   extend Configuration
