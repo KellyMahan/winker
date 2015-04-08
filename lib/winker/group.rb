@@ -18,17 +18,21 @@ module Winker
     end
     
     def on
-      Winker.update_group(@id, {desired_state: {powered: "true"}})
+      Winker.update_group(@id, {desired_state: {powered: true}})
     end
     
     def off
-      Winker.update_group(@id, {desired_state: {powered: "false"}})
+      Winker.update_group(@id, {desired_state: {powered: false}})
     end
     
+    def update(options)
+      @updated_at = Time.now + Winker.server_time_dif
+      Winker.update_group(@id, options)
+    end
     
     def brightness=(_brightness)
       #set brightness level
-      Winker.update_group(@id, {desired_state: {powered: "true", brightness: _brightness}})
+      Winker.update_group(@id, {desired_state: {powered: true, brightness: _brightness}})
     end
   
     def method_missing(method_sym, *arguments, &block)
