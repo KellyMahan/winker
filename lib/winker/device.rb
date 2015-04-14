@@ -5,6 +5,7 @@ require 'winker/devices/on_off'
 require 'winker/devices/light_bulb'
 require 'winker/devices/sensor_pod'
 require 'winker/devices/unknown_device'
+require 'winker/devices/eggtray'
 require 'winker/devices/hub'
 
 module Winker
@@ -16,7 +17,7 @@ module Winker
     def initialize(obj_data)
       @obj_data = obj_data
       find_type_and_id
-      self.extend(eval("Winker::Devices::#{@type.classify}"))
+      self.extend(eval("Winker::Devices::#{@type.classify}")) if @type
     end
   
     def method_missing(method_sym, *arguments, &block)
@@ -33,8 +34,10 @@ module Winker
     include Winker::Devices::LightBulb
     include Winker::Devices::SensorPod
     include Winker::Devices::UnknownDevice
+    include Winker::Devices::Eggtray
     include Winker::Devices::Hub
     # VALID_TYPES=%w{
+    #   egg_minder
     #   sensor_pod
     #   light_bulb
     #   garage_door

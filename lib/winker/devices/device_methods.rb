@@ -7,6 +7,7 @@ module Winker
         sensor_pod
         light_bulb
         unknown_device
+        eggtray
         hub
       }
   
