@@ -29,6 +29,7 @@ Or install it yourself as:
 
 For an example of how I make use of it. Check out my project at https://github.com/KellyMahan/MyHome . It shows all the gems I'm currently using along with some setup scripts. Currently I combine Winker WinkerAI and AmazonEchoJS for voice controlled home automation.
 
+If you just want to interface with the API then the basic gem usage is below.
 
     Winker.configure do |wink|
       wink.client_id     = "******************"
