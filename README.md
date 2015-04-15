@@ -27,6 +27,8 @@ Or install it yourself as:
 
 ## Usage
 
+For an example of how I make use of it. Check out my project at https://github.com/KellyMahan/MyHome . It shows all the gems I'm currently using along with some setup scripts. Currently I combine Winker WinkerAI and AmazonEchoJS for voice controlled home automation.
+
 
     Winker.configure do |wink|
       wink.client_id     = "******************"
@@ -183,7 +185,7 @@ Each device has it's own associated type. To make things easier when devices are
 #Future plans
 
 1. I need to add more functionality that the api provides as well as more helper methods for devices that I don't have and can't test.
-2. I'm getting an Amazon Echo in April that I plan on integrating as a separate gem.
+2. (DONE!! https://github.com/KellyMahan/MyHome) I'm getting an Amazon Echo in April that I plan on integrating as a separate gem.
 3. I've already started on winker-rails gem that currently works with light bulbs on off and brightness. I'll release it soon and continue to add functionality.
 
 
