@@ -9,7 +9,7 @@ module Winker
         conn.response :json, :content_type => /\bjson$/
 
         conn.authorization :bearer, Winker.access_token if Winker.access_token
-        conn.response :detailed_logger
+        conn.response :detailed_logger, Winker.logger if Winker.logger
 
         conn.adapter Faraday.default_adapter # make requests with Net::HTTP
       end
