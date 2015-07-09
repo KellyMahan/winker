@@ -40,6 +40,7 @@ If you just want to interface with the API then the basic gem usage is below.
       wink.password = "**********"
       wink.endpoint = "https://winkapi.quirky.com"
       wink.wait_for_updates = true #this is the default setting is optional
+      wink.logger = Logger.new($stdout) #this is the default setting is optional
     end
 
     #retrieve the access_token and refresh_token

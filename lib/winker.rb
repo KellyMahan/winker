@@ -36,10 +36,11 @@ module Winker
   end
   
   module Configuration
-    attr_accessor :client_id, :client_secret, :access_token, :refresh_token, :username, :password, :endpoint, :server_time_dif, :wait_for_updates
+    attr_accessor :client_id, :client_secret, :access_token, :refresh_token, :username, :password, :endpoint, :server_time_dif, :wait_for_updates, :logger
 
     def configure
       self.wait_for_updates = true
+      self.logger = Logger.new($stdout)
       yield self
     end
   end
